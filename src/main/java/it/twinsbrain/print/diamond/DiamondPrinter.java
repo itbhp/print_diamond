@@ -8,13 +8,13 @@ public class DiamondPrinter {
     private final static char initialChar = 'A';
     private final int lines;
     private final char aChar;
-    private int outSideSpaces;
+    private int outsideSpaces;
     private char currentChar;
 
     private DiamondPrinter(char aChar,int aCharDistanceFromA, int lines){
         this.lines = lines;
         this.aChar = aChar;
-        this.outSideSpaces = aCharDistanceFromA;
+        this.outsideSpaces = aCharDistanceFromA;
     }
 
     public static DiamondPrinter forChar(char aChar){
@@ -39,13 +39,13 @@ public class DiamondPrinter {
     }
 
     private String addInitialOrLastRow(String res, String charString) {
-        res = res + spaces(outSideSpaces) + charString + spaces(outSideSpaces);
+        res = res + spaces(outsideSpaces) + charString + spaces(outsideSpaces);
         return res;
     }
 
     private String addInternalRow(String res, String charString) {
-        int insidespaces = lines - (2 * outSideSpaces) - 2;
-        res = res + spaces(outSideSpaces) + charString + spaces(insidespaces) + charString + spaces(outSideSpaces);
+        int insideSpaces = lines - (2 * outsideSpaces) - 2;
+        res = res + spaces(outsideSpaces) + charString + spaces(insideSpaces) + charString + spaces(outsideSpaces);
         return res;
     }
 
@@ -59,10 +59,10 @@ public class DiamondPrinter {
     private void prepareVarsForNextRow(int i) {
         if (i < lines / 2 + 1) {
             currentChar++;
-            outSideSpaces--;
+            outsideSpaces--;
         } else {
             currentChar--;
-            outSideSpaces++;
+            outsideSpaces++;
         }
     }
 
