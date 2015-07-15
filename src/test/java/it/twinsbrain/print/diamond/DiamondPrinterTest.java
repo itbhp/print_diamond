@@ -6,29 +6,26 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-/**
- * Given a letter print a diamond starting with 'A'
- * with the supplied letter at the widest point.
- * <p>
- * For example: print-diamond 'E' prints
- * <p>
- * A
- * B B
- * C   C
- * D     D
- * E       E
- * D     D
- * C   C
- * B B
- * A
- * <p>
- * For example: print-diamond 'C' prints
- * <p>
- * A
- * B B
- * C   C
- * B B
- * A
+/*
+Given a letter print a diamond starting with 'A'
+with the supplied letter at the widest point.
+<p>
+For example: print-diamond 'E' prints
+    A
+   B B
+  C   C
+ D     D
+E       E
+ D     D
+  C   C
+   B B
+    A
+For example: print-diamond 'C' prints
+  A
+ B B
+C   C
+ B B
+  A
  */
 public class DiamondPrinterTest {
 

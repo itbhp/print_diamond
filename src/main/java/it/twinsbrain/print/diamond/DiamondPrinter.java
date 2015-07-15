@@ -6,23 +6,20 @@ package it.twinsbrain.print.diamond;
 public class DiamondPrinter {
 
     private final static char initialChar = 'A';
-    private final int aCharDistanceFromA;
     private final int lines;
-    private final char diamondFor;
+    private final char aChar;
     private int outSideSpaces;
-    private int insidespaces;
     private char currentChar;
 
-    private DiamondPrinter(char diamondFor,int aCharDistanceFromA, int lines){
-        this.aCharDistanceFromA = aCharDistanceFromA;
+    private DiamondPrinter(char aChar,int aCharDistanceFromA, int lines){
         this.lines = lines;
-        this.diamondFor = diamondFor;
+        this.aChar = aChar;
         this.outSideSpaces = aCharDistanceFromA;
     }
 
-    public static DiamondPrinter forChar(char diamondFor){
-        int aCharDistanceFromA = diamondFor - initialChar;
-        return new DiamondPrinter(diamondFor, aCharDistanceFromA, 2 * aCharDistanceFromA + 1);
+    public static DiamondPrinter forChar(char aChar){
+        int aCharDistanceFromA = aChar - initialChar;
+        return new DiamondPrinter(aChar, aCharDistanceFromA, 2 * aCharDistanceFromA + 1);
     }
 
     public String print() {
@@ -47,7 +44,7 @@ public class DiamondPrinter {
     }
 
     private String addInternalRow(String res, String charString) {
-        insidespaces = lines - (2 * outSideSpaces) - 2;
+        int insidespaces = lines - (2 * outSideSpaces) - 2;
         res = res + spaces(outSideSpaces) + charString + spaces(insidespaces) + charString + spaces(outSideSpaces);
         return res;
     }
