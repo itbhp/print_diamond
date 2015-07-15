@@ -9,10 +9,12 @@ public class DiamondPrinter {
     private final int lines;
     private int outsideSpaces;
     private char currentChar;
+    private String diamond;
 
     private DiamondPrinter(int aCharDistanceFromA, int lines){
         this.lines = lines;
         this.outsideSpaces = aCharDistanceFromA;
+        this.diamond = "";
     }
 
     public static DiamondPrinter forChar(char aChar){
@@ -21,19 +23,25 @@ public class DiamondPrinter {
     }
 
     public String print() {
-        String res = "";
+        if(diamond.length()>0){
+            return diamond;
+        }
         currentChar = initialChar;
         for (int i = 1; i <= lines; i++) {
-            String charString = String.valueOf(currentChar);
-            if( i > 1 && i < lines ) {
-                res = addInternalRow(res, charString);
-            }else{
-                res = addInitialOrLastRow(res, charString);
-            }
-            prepareVarsForNextRow(i);
-            res = endLineIfNecessary(res, i);
+            createDiamondRow(i);
+            prepareForNextRow(i);
         }
-        return res;
+        return diamond;
+    }
+
+    private void createDiamondRow(int i) {
+        String charString = String.valueOf(currentChar);
+        if( i > 1 && i < lines ) {
+            diamond = addInternalRow(diamond, charString);
+        }else{
+            diamond = addInitialOrLastRow(diamond, charString);
+        }
+        diamond = endLineIfNecessary(diamond, i);
     }
 
     private String addInitialOrLastRow(String res, String charString) {
@@ -54,7 +62,7 @@ public class DiamondPrinter {
         return res;
     }
 
-    private void prepareVarsForNextRow(int i) {
+    private void prepareForNextRow(int i) {
         if (i < lines / 2 + 1) {
             currentChar++;
             outsideSpaces--;
