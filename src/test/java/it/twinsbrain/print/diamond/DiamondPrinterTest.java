@@ -7,9 +7,9 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 /*
+
 Given a letter print a diamond starting with 'A'
 with the supplied letter at the widest point.
-<p>
 For example: print-diamond 'E' prints
     A
    B B
@@ -26,6 +26,7 @@ For example: print-diamond 'C' prints
 C   C
  B B
   A
+
  */
 public class DiamondPrinterTest {
 
