@@ -7,19 +7,17 @@ public class DiamondPrinter {
 
     private final static char initialChar = 'A';
     private final int lines;
-    private final char aChar;
     private int outsideSpaces;
     private char currentChar;
 
-    private DiamondPrinter(char aChar,int aCharDistanceFromA, int lines){
+    private DiamondPrinter(int aCharDistanceFromA, int lines){
         this.lines = lines;
-        this.aChar = aChar;
         this.outsideSpaces = aCharDistanceFromA;
     }
 
     public static DiamondPrinter forChar(char aChar){
         int aCharDistanceFromA = aChar - initialChar;
-        return new DiamondPrinter(aChar, aCharDistanceFromA, 2 * aCharDistanceFromA + 1);
+        return new DiamondPrinter(aCharDistanceFromA, 2 * aCharDistanceFromA + 1);
     }
 
     public String print() {
