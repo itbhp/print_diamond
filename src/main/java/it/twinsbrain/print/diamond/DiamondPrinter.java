@@ -1,6 +1,7 @@
 package it.twinsbrain.print.diamond;
 
 /**
+ * 
  * @author paolo
  */
 public class DiamondPrinter {
@@ -29,7 +30,7 @@ public class DiamondPrinter {
         currentChar = initialChar;
         for (int i = 1; i <= lines; i++) {
             createDiamondRow(i);
-            prepareForNextRow(i);
+            updateCurrentCharAndOutsideSpaces(i);
         }
         return diamond;
     }
@@ -62,7 +63,7 @@ public class DiamondPrinter {
         return res;
     }
 
-    private void prepareForNextRow(int i) {
+    private void updateCurrentCharAndOutsideSpaces(int i) {
         if (i < lines / 2 + 1) {
             currentChar++;
             outsideSpaces--;

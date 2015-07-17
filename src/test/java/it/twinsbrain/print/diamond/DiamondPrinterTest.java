@@ -49,10 +49,10 @@ public class DiamondPrinterTest {
     public void diamond_for_c() throws Exception {
         String diamond = DiamondPrinter.forChar('C').print();
         String expectedDiamond = "  A  \n"
-                               +" B B \n"
-                               +"C   C\n"
-                               +" B B \n"
-                               +"  A  ";
+                                +" B B \n"
+                                +"C   C\n"
+                                +" B B \n"
+                                +"  A  ";
         assertThat(diamond, is(equalTo(expectedDiamond)));
     }
 
