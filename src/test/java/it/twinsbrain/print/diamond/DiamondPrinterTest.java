@@ -39,25 +39,49 @@ public class DiamondPrinterTest {
     @Test
     public void diamond_for_b() throws Exception {
         String diamond = DiamondPrinter.forChar('B').print();
-        assertThat(diamond, is(equalTo(" A \nB B\n A ")));
+        String expectedDiamond = " A \n"
+                                +"B B\n"
+                                +" A ";
+        assertThat(diamond, is(equalTo(expectedDiamond)));
     }
 
     @Test
     public void diamond_for_c() throws Exception {
         String diamond = DiamondPrinter.forChar('C').print();
-        assertThat(diamond, is(equalTo("  A  \n B B \nC   C\n B B \n  A  ")));
+        String expectedDiamond = "  A  \n"
+                               +" B B \n"
+                               +"C   C\n"
+                               +" B B \n"
+                               +"  A  ";
+        assertThat(diamond, is(equalTo(expectedDiamond)));
     }
 
     @Test
     public void diamond_for_d() throws Exception {
         String diamond = DiamondPrinter.forChar('D').print();
-        assertThat(diamond, is(equalTo("   A   \n  B B  \n C   C \nD     D\n C   C \n  B B  \n   A   ")));
+        String expectedDiamond = "   A   \n"+
+                                 "  B B  \n"+
+                                 " C   C \n"+
+                                 "D     D\n"+
+                                 " C   C \n"+
+                                 "  B B  \n"+
+                                 "   A   ";
+        assertThat(diamond, is(equalTo(expectedDiamond)));
     }
 
     @Test
     public void diamond_for_e() throws Exception {
         String diamond = DiamondPrinter.forChar('E').print();
-        assertThat(diamond, is(equalTo("    A    \n   B B   \n  C   C  \n D     D \nE       E\n D     D \n  C   C  \n   B B   \n    A    ")));
+        String expectedDiamond = "    A    \n"+
+                                 "   B B   \n"+
+                                 "  C   C  \n"+
+                                 " D     D \n"+
+                                 "E       E\n"+
+                                 " D     D \n"+
+                                 "  C   C  \n"+
+                                 "   B B   \n"+
+                                 "    A    ";
+        assertThat(diamond, is(equalTo(expectedDiamond)));
     }
 
 }
