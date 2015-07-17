@@ -1,7 +1,9 @@
 package it.twinsbrain.print.diamond;
 
+import java.util.stream.IntStream;
+
 /**
- * 
+ *
  * @author paolo
  */
 public class DiamondPrinter {
@@ -74,10 +76,6 @@ public class DiamondPrinter {
     }
 
     private String spaces(int n) {
-        String res = "";
-        for (int i = 1; i <= n; i++) {
-            res += " ";
-        }
-        return res;
+        return IntStream.range(0,n).mapToObj( i -> " ").reduce("", String::concat);
     }
 }
