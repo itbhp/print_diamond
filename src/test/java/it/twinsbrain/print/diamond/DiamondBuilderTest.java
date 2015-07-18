@@ -28,50 +28,50 @@ C   C
   A
 
  */
-public class DiamondPrinterTest {
+public class DiamondBuilderTest {
 
     @Test
     public void diamond_for_a() throws Exception {
-        String diamond = DiamondPrinter.forChar('A').print();
-        assertThat(diamond, is(equalTo("A")));
+        String diamond = new DiamondBuilder('A').build();
+        assertThat(diamond, is(equalTo("A\n")));
     }
 
     @Test
     public void diamond_for_b() throws Exception {
-        String diamond = DiamondPrinter.forChar('B').print();
+        String diamond = new DiamondBuilder('B').build();
         String expectedDiamond = " A \n"
                                 +"B B\n"
-                                +" A ";
+                                +" A \n";
         assertThat(diamond, is(equalTo(expectedDiamond)));
     }
 
     @Test
     public void diamond_for_c() throws Exception {
-        String diamond = DiamondPrinter.forChar('C').print();
+        String diamond = new DiamondBuilder('C').build();
         String expectedDiamond = "  A  \n"
                                 +" B B \n"
                                 +"C   C\n"
                                 +" B B \n"
-                                +"  A  ";
+                                +"  A  \n";
         assertThat(diamond, is(equalTo(expectedDiamond)));
     }
 
     @Test
     public void diamond_for_d() throws Exception {
-        String diamond = DiamondPrinter.forChar('D').print();
+        String diamond = new DiamondBuilder('D').build();
         String expectedDiamond = "   A   \n"+
                                  "  B B  \n"+
                                  " C   C \n"+
                                  "D     D\n"+
                                  " C   C \n"+
                                  "  B B  \n"+
-                                 "   A   ";
+                                 "   A   \n";
         assertThat(diamond, is(equalTo(expectedDiamond)));
     }
 
     @Test
     public void diamond_for_e() throws Exception {
-        String diamond = DiamondPrinter.forChar('E').print();
+        String diamond = new DiamondBuilder('E').build();
         String expectedDiamond = "    A    \n"+
                                  "   B B   \n"+
                                  "  C   C  \n"+
@@ -80,7 +80,7 @@ public class DiamondPrinterTest {
                                  " D     D \n"+
                                  "  C   C  \n"+
                                  "   B B   \n"+
-                                 "    A    ";
+                                 "    A    \n";
         assertThat(diamond, is(equalTo(expectedDiamond)));
     }
 
