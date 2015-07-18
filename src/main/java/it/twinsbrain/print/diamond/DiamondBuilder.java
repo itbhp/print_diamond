@@ -8,43 +8,41 @@ import java.util.stream.IntStream;
  */
 public class DiamondBuilder {
 
-    private final static char initialChar = 'A';
     private final int lines;
     private final char target;
 
     public DiamondBuilder(char target){
         this.target =  target;
-        this.lines = 2 * (target -initialChar) + 1;
+        this.lines = 2 * (target - 'A') + 1;
     }
 
     public String build() {
         String diamond = "";
-        char currentChar = initialChar;
-        int outsideSpaces = target - initialChar;
+        char currentChar = 'A';
         for (int i = 1; i <= lines; i++) {
-            diamond += createDiamondRow(i, currentChar, outsideSpaces);
+            diamond += createDiamondRow(i, currentChar);
             currentChar = getNextChar(i, currentChar);
-            outsideSpaces = getNextSpaces(i, outsideSpaces);
         }
         return diamond;
     }
 
-    private String createDiamondRow(int i, char currentChar, int outsideSpaces) {
-        String charString = String.valueOf(currentChar);
+    private String createDiamondRow(int i, char currentChar) {
         if( i > 1 && i < lines ) {
-            return internalRow(charString, outsideSpaces);
+            return internalRow(currentChar);
         }else{
-            return initialOrLastRow(charString, outsideSpaces);
+            return initialOrLastRow(currentChar);
         }
     }
 
-    private String initialOrLastRow(String charString, int outsideSpaces) {
-        return spaces(outsideSpaces) + charString + spaces(outsideSpaces)+"\n";
+    private String initialOrLastRow(char currentChar) {
+        int outsideSpaces = target - currentChar;
+        return spaces(outsideSpaces) + currentChar + spaces(outsideSpaces)+"\n";
     }
 
-    private String internalRow(String charString, int outsideSpaces) {
+    private String internalRow(char currentChar) {
+        int outsideSpaces = target - currentChar;
         int insideSpaces = lines - (2 * outsideSpaces) - 2;
-        return spaces(outsideSpaces) + charString + spaces(insideSpaces) + charString + spaces(outsideSpaces)+"\n";
+        return spaces(outsideSpaces) + currentChar + spaces(insideSpaces) + currentChar + spaces(outsideSpaces)+"\n";
     }
 
     private char getNextChar(int i, char prev){
@@ -54,14 +52,6 @@ public class DiamondBuilder {
             return (char) ((int)prev -1);
         }
 
-    }
-
-    private int getNextSpaces(int i, int outsideSpaces) {
-        if (i < lines / 2 + 1) {
-            return outsideSpaces-1;
-        } else {
-            return outsideSpaces+1;
-        }
     }
 
     private String spaces(int n) {
