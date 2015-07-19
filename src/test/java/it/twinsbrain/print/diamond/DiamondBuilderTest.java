@@ -2,6 +2,10 @@ package it.twinsbrain.print.diamond;
 
 import org.junit.Test;
 
+import java.util.function.Supplier;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -83,5 +87,11 @@ public class DiamondBuilderTest {
                                  "    A    \n";
         assertThat(diamond, is(equalTo(expectedDiamond)));
     }
+
+    @Test
+    public void test(){
+
+    }
+
 
 }
