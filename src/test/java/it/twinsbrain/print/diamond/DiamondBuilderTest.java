@@ -87,11 +87,4 @@ public class DiamondBuilderTest {
                                  "    A    \n";
         assertThat(diamond, is(equalTo(expectedDiamond)));
     }
-
-    @Test
-    public void test(){
-
-    }
-
-
 }
