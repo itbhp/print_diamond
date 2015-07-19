@@ -31,5 +31,5 @@ public abstract class DiamondRow {
         }
     }
 
-    public abstract String buildLine();
+    public abstract String buildRow();
 }

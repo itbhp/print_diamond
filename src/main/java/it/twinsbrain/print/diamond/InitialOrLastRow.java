@@ -10,7 +10,7 @@ class InitialOrLastRow extends DiamondRow {
     }
 
     @Override
-    public String buildLine() {
+    public String buildRow() {
         return spaces(outsideSpaces) + current + spaces(outsideSpaces)+"\n";
     }
 }

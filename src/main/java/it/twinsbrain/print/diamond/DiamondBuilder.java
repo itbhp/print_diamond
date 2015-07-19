@@ -5,7 +5,7 @@ package it.twinsbrain.print.diamond;
  * @author paolo
  */
 public class DiamondBuilder {
- 
+
     private final char target;
 
     public DiamondBuilder(char target){
@@ -15,10 +15,10 @@ public class DiamondBuilder {
     public String build() {
         String diamond = "";
         for (char current = 'A'; current <= target; current++) {
-            diamond += DiamondRow.instanceFor(target, current).buildLine();
+            diamond += DiamondRow.instanceFor(target, current).buildRow();
         }
         for (char current = (char)(target - 1); current >= 'A'; current--) {
-            diamond += DiamondRow.instanceFor(target, current).buildLine();
+            diamond += DiamondRow.instanceFor(target, current).buildRow();
         }
         return diamond;
     }

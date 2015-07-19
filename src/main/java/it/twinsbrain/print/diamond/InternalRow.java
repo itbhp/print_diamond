@@ -10,7 +10,7 @@ class InternalRow  extends DiamondRow{
     }
 
     @Override
-    public String buildLine() {
+    public String buildRow() {
         int insideSpaces = totalLines - (2 * outsideSpaces) - 2;
         return spaces(outsideSpaces) + current + spaces(insideSpaces) + current + spaces(outsideSpaces)+"\n";
     }
